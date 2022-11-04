@@ -41,7 +41,7 @@
         android:layout_below="@+id/txt_tensv_add"
         android:layout_centerInParent="true"
         android:ems="15"
-        android:hint="Giới Tính"
+        android:hint="Giới Tính(0:Nam, 1:Nữ)"
         android:textColor="#706B6B" />
 
     <EditText

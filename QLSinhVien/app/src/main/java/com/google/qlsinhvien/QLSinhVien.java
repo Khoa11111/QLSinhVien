@@ -59,7 +59,6 @@ public class QLSinhVien extends AppCompatActivity {
 
     private List<SinhVien> getListSinhVien() {
         List<SinhVien> list = new ArrayList<>();
-        list.clear();
         Cursor data = database.GetData("SELECT * FROM SinhVien");
         while (data.moveToNext()) {
             String masv = data.getString(0);
@@ -84,7 +83,8 @@ public class QLSinhVien extends AppCompatActivity {
             public void onClick(DialogInterface dialogInterface, int i) {
                 database.QueryData("DELETE FROM SinhVien WHERE maSV = '" + maSV + "'");
                 Toast.makeText(QLSinhVien.this, "Đã Xóa", Toast.LENGTH_SHORT).show();
-                getListSinhVien();
+                sinhVienAdapter.setData(getListSinhVien());
+                recyclerView.setAdapter(sinhVienAdapter);
             }
         });
 
@@ -121,7 +121,8 @@ public class QLSinhVien extends AppCompatActivity {
                 database.QueryData("UPDATE SinhVien SET tenSV = '" + tenSVmoi + "',gioiTinh = '"+GTSVMoi+"', email = '" + emailMoi + "' WHERE maSV = '" + maSV + "'");
                 Toast.makeText(QLSinhVien.this, "Đã Sửa", Toast.LENGTH_SHORT).show();
                 dialog.dismiss();
-                getListSinhVien();
+                sinhVienAdapter.setData(getListSinhVien());
+                recyclerView.setAdapter(sinhVienAdapter);
             }
         });
 
@@ -158,7 +159,8 @@ public class QLSinhVien extends AppCompatActivity {
                         " VALUES('" + maSV + "','" + tenSV + "'," + gioitinh + ",'"+email+"')");
                 Toast.makeText(QLSinhVien.this, "Đã Thêm", Toast.LENGTH_SHORT).show();
                 dialog.dismiss();
-                getListSinhVien();
+                sinhVienAdapter.setData(getListSinhVien());
+                recyclerView.setAdapter(sinhVienAdapter);
             }
         });
 

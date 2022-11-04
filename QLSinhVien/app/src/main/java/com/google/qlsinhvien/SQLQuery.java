@@ -25,15 +25,16 @@ public class SQLQuery extends AppCompatActivity {
                                 "gioiTinh int not null," +
                                 "email varchar(50))");
 
-        Cursor data = database.GetData("SELECT * FROM SinhVien");
-        while(data.moveToNext()){
-            int t = data.getInt(2);
-            Toast.makeText(this,String.valueOf(t),Toast.LENGTH_SHORT).show();
-        }
         //insert into SinhVien
         database.QueryData("INSERT INTO SinhVien " +
                                 "VALUES('2050531200410','Nguyễn Phương Nhi',1,'nhiphuong@gmail.com')," +
                                         "('2050531200356','Nguyễn Văn Phát',0,'phatnguyen@gmail.com')," +
                                         "('2050531200201','Đào Thị Nga',1,'ngadao@gmail.com')");
+
+        Cursor data = database.GetData("SELECT * FROM SinhVien");
+        while(data.moveToNext()){
+            String t = data.getString(1);
+            Toast.makeText(this,t,Toast.LENGTH_SHORT).show();
+        }
     }
 }
