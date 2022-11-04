@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerInParent="true"
+        android:text="Thêm Sinh Viên"
+        android:textColor="#FF00"
+        android:textSize="30dp"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/txt_masv_add"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/text"
+        android:layout_centerInParent="true"
+        android:ems="15"
+        android:hint="Mã Sinh Viên"
+        android:textColor="#706B6B" />
+
+    <EditText
+        android:id="@+id/txt_tensv_add"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txt_masv_add"
+        android:layout_centerInParent="true"
+        android:ems="15"
+        android:hint="Tên Sinh Viên"
+        android:textColor="#706B6B" />
+
+    <EditText
+        android:id="@+id/txt_gt_add"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txt_tensv_add"
+        android:layout_centerInParent="true"
+        android:ems="15"
+        android:hint="Giới Tính"
+        android:textColor="#706B6B" />
+
+    <EditText
+        android:id="@+id/txt_email_add"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txt_gt_add"
+        android:layout_centerInParent="true"
+        android:ems="15"
+        android:hint="Email"
+        android:textColor="#706B6B" />
+
+
+    <Button
+        android:id="@+id/btn_Them"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txt_email_add"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="50dp"
+        android:backgroundTint="#57c1db"
+        android:text="Thêm" />
+
+    <Button
+        android:id="@+id/btn_Huy_add"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txt_email_add"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="50dp"
+        android:layout_toRightOf="@+id/btn_Them"
+        android:backgroundTint="#57c1db"
+        android:text="Hủy" />
+</RelativeLayout>
