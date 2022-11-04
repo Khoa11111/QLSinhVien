@@ -26,30 +26,30 @@ import java.util.List;
 
 public class QLSinhVien extends AppCompatActivity {
 
-    private RecyclerView recyclerView;
-    private SinhVienAdapter sinhVienAdapter;
-    private Database database;
-    private ImageView imgAdd;
+    private RecyclerView recyclerView_217;
+    private SinhVienAdapter sinhVienAdapter_217;
+    private Database database_217;
+    private ImageView imgAdd_217;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.sinhvien_list);
 
-        imgAdd = (ImageView) findViewById(R.id.img_add);
+        imgAdd_217 = (ImageView) findViewById(R.id.img_add);
 
-        database = new Database(this, "QLSINHVIEN", null, 1);
+        database_217 = new Database(this, "QLSINHVIEN", null, 1);
 
-        recyclerView = (RecyclerView) findViewById(R.id.rcv_sinhvien);
-        sinhVienAdapter = new SinhVienAdapter(this);
+        recyclerView_217 = (RecyclerView) findViewById(R.id.rcv_sinhvien);
+        sinhVienAdapter_217 = new SinhVienAdapter(this);
 
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this, RecyclerView.VERTICAL, false);
-        recyclerView.setLayoutManager(linearLayoutManager);
+        recyclerView_217.setLayoutManager(linearLayoutManager);
 
-        sinhVienAdapter.setData(getListSinhVien());
-        recyclerView.setAdapter(sinhVienAdapter);
+        sinhVienAdapter_217.setData(getListSinhVien());
+        recyclerView_217.setAdapter(sinhVienAdapter_217);
 
-        imgAdd.setOnClickListener(new View.OnClickListener() {
+        imgAdd_217.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 DialogThem();
@@ -59,7 +59,7 @@ public class QLSinhVien extends AppCompatActivity {
 
     private List<SinhVien> getListSinhVien() {
         List<SinhVien> list = new ArrayList<>();
-        Cursor data = database.GetData("SELECT * FROM SinhVien");
+        Cursor data = database_217.GetData("SELECT * FROM SinhVien");
         while (data.moveToNext()) {
             String masv = data.getString(0);
             String tensv = data.getString(1);
@@ -71,7 +71,7 @@ public class QLSinhVien extends AppCompatActivity {
                 list.add(new SinhVien(R.drawable.girl_icon, masv, tensv, email));
             }
         }
-        sinhVienAdapter.notifyDataSetChanged();
+        sinhVienAdapter_217.notifyDataSetChanged();
         return list;
     }
 
@@ -81,10 +81,10 @@ public class QLSinhVien extends AppCompatActivity {
         dialogXoa.setPositiveButton("Có", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
-                database.QueryData("DELETE FROM SinhVien WHERE maSV = '" + maSV + "'");
+                database_217.QueryData("DELETE FROM SinhVien WHERE maSV = '" + maSV + "'");
                 Toast.makeText(QLSinhVien.this, "Đã Xóa", Toast.LENGTH_SHORT).show();
-                sinhVienAdapter.setData(getListSinhVien());
-                recyclerView.setAdapter(sinhVienAdapter);
+                sinhVienAdapter_217.setData(getListSinhVien());
+                recyclerView_217.setAdapter(sinhVienAdapter_217);
             }
         });
 
@@ -118,11 +118,11 @@ public class QLSinhVien extends AppCompatActivity {
                 String tenSVmoi = edtTenSV.getText().toString().trim();
                 String GTSVMoi = edtGTSV.getText().toString().trim();
                 String emailMoi = edtEmail.getText().toString().trim();
-                database.QueryData("UPDATE SinhVien SET tenSV = '" + tenSVmoi + "',gioiTinh = '"+GTSVMoi+"', email = '" + emailMoi + "' WHERE maSV = '" + maSV + "'");
+                database_217.QueryData("UPDATE SinhVien SET tenSV = '" + tenSVmoi + "',gioiTinh = '"+GTSVMoi+"', email = '" + emailMoi + "' WHERE maSV = '" + maSV + "'");
                 Toast.makeText(QLSinhVien.this, "Đã Sửa", Toast.LENGTH_SHORT).show();
                 dialog.dismiss();
-                sinhVienAdapter.setData(getListSinhVien());
-                recyclerView.setAdapter(sinhVienAdapter);
+                sinhVienAdapter_217.setData(getListSinhVien());
+                recyclerView_217.setAdapter(sinhVienAdapter_217);
             }
         });
 
@@ -155,12 +155,12 @@ public class QLSinhVien extends AppCompatActivity {
                 String tenSV = edtTenSV.getText().toString();
                 String gioitinh = edtGioiTinh.getText().toString();
                 String email = edtEmail.getText().toString();
-                database.QueryData("INSERT INTO SinhVien" +
+                database_217.QueryData("INSERT INTO SinhVien" +
                         " VALUES('" + maSV + "','" + tenSV + "'," + gioitinh + ",'"+email+"')");
                 Toast.makeText(QLSinhVien.this, "Đã Thêm", Toast.LENGTH_SHORT).show();
                 dialog.dismiss();
-                sinhVienAdapter.setData(getListSinhVien());
-                recyclerView.setAdapter(sinhVienAdapter);
+                sinhVienAdapter_217.setData(getListSinhVien());
+                recyclerView_217.setAdapter(sinhVienAdapter_217);
             }
         });
 

@@ -18,15 +18,15 @@ import java.util.List;
 
 public class SinhVienAdapter extends RecyclerView.Adapter<SinhVienAdapter.SinhVienViewHolder>{
 
-    private QLSinhVien context;
-    private List<SinhVien> list;
+    private QLSinhVien context_217;
+    private List<SinhVien> list_217;
 
     public SinhVienAdapter(QLSinhVien context) {
-        this.context = context;
+        this.context_217 = context;
     }
 
     public void setData(List<SinhVien> list){
-        this.list = list;
+        this.list_217 = list;
         notifyDataSetChanged();
     }
 
@@ -39,7 +39,7 @@ public class SinhVienAdapter extends RecyclerView.Adapter<SinhVienAdapter.SinhVi
 
     @Override
     public void onBindViewHolder(@NonNull SinhVienViewHolder holder, int position) {
-        SinhVien sinhVien = list.get(position);
+        SinhVien sinhVien = list_217.get(position);
         if(sinhVien == null){
             return;
         }
@@ -53,22 +53,22 @@ public class SinhVienAdapter extends RecyclerView.Adapter<SinhVienAdapter.SinhVi
         holder.imgEdit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                context.DialogSua(sinhVien.getMaSV(),sinhVien.getTenSV(),sinhVien.getEmail());
+                context_217.DialogSua(sinhVien.getMaSV(),sinhVien.getTenSV(),sinhVien.getEmail());
             }
         });
 
         holder.imgDelete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                context.DialogXoa(sinhVien.getMaSV());
+                context_217.DialogXoa(sinhVien.getMaSV());
             }
         });
     }
 
     @Override
     public int getItemCount() {
-        if(list != null) {
-            return list.size();
+        if(list_217 != null) {
+            return list_217.size();
         }
         return 0;
     }
